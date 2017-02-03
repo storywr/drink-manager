@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20170203184207) do
     t.string   "name"
     t.string   "description"
     t.integer  "rating"
-    t.integer  "abv"
+    t.float    "abv"
     t.integer  "user_id"
     t.integer  "style_id"
     t.datetime "created_at",  null: false
