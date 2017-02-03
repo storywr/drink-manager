@@ -2,16 +2,23 @@
 
 <% @beers.each do |beer| %>
 <h2><%= beer.name %></h2>
-  Average Rating: <%= beer.average_rating %><br><br>
+  <% if beer.reviews == [] %>
+    <p>No Ratings Available</p>
+  <% else %>
+    Avg Rating: <%= beer.average_rating %><br><br>
+  <% end %>
   <%= beer.description %>
 <h4>Style: <%= beer.style.name %></h4>
   <%= beer.style.description %><br><br>
   ABV%: <%= beer.abv %><br>
 
-  <h4>Reviews:</h4>
-
-  <% beer.reviews.each do |review| %>
-    <%= review.user.name %> says: "<%= review.summary %>"<br>
-    Rating: <%= review.rating %>/10
+  <% if beer.reviews == [] %>
+    <p>No Reviews Yet!</p>
+  <% else %>
+    <h4>Reviews:</h4>
+    <% beer.reviews.each do |review| %>
+      <%= review.user.name %> says: "<%= review.summary %>"<br>
+      Rating: <%= review.rating %>/10
+    <% end %>
   <% end %>
 <% end %>
