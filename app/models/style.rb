@@ -3,13 +3,15 @@ class Style < ApplicationRecord
   has_many :users, through: :beers
 
   def average_rating
-    rating_total = 0
-    beer_total = 0
+    total_rating = 0
+    total_reviews = 0
     self.beers.each do |beer|
-      rating_total += beer.rating
-      beer_total += 1
+      beer.reviews.each do |review|
+        total_rating += review.rating
+        total_reviews += 1
+      end
     end
-    rating_total.to_f / beer_total.to_f
+    total_rating.to_f / total_reviews.to_f
   end
 
 end
