@@ -5,11 +5,21 @@ class Beer < ApplicationRecord
   def average_rating
     total_rating = 0
     total_reviews = 0
-    self.reviews.each do |review|
-      total_rating += review.rating
-      total_reviews += 1
+    if self.reviews != []
+      self.reviews.each do |review|
+        total_rating += review.rating
+        total_reviews += 1
+      end
+      total_rating.to_f / total_reviews.to_f\
+    else
+      0.to_f
     end
-    total_rating.to_f / total_reviews.to_f
+  end
+
+  def self.highest_rated
+    all.max_by do |beer|
+      beer.average_rating
+    end
   end
 
 end
