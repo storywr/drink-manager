@@ -16,6 +16,8 @@ Beer.create({name: "UFO White", description: "Light, crisp, refreshing UFO White
 
 Beer.create({name: "Great Lakes Edmund Fitzgerald Porter", description: "Robust and complex, our Porter is a bittersweet tribute to the legendary freighter’s fallen crew—taken too soon when the gales of November came early. Brewed in memory of the sunken freighter, with rich roasted barley and bittersweet chocolate-coffee notes.", abv: 6.0, style_id: 2})
 
+Beer.create({name: "Sierra Nevada Porter", description: "Porters were invented as a fortifying drink for the rough-and-tumble working class of London’s bustling markets. It was brewed for good folks with calluses on their hands, doing work that needed to be done. We salute those working-class heroes with our classic Porter, brewed in the hop-forward American style and featuring a depth of malt flavor and complexity with roasted notes of black coffee and cocoa.", abv: 5.6, style_id: 2})
+
 Review.create({summary: "dopest dope", rating: 7, user_id: 1, beer_id: 1})
 
 Review.create({summary: "I want to bathe in it", rating: 8, user_id: 1, beer_id: 2})
@@ -24,6 +26,8 @@ Review.create({summary: "Like a million little pixies flying around the inside o
 
 Review.create({summary: "nectar of the gods", rating: 6, user_id: 1, beer_id: 4})
 
+Review.create({summary: "chocolate rain", rating: 8, user_id: 1, beer_id: 5})
+
 Review.create({summary: "gasoline", rating: 4, user_id: 2, beer_id: 1})
 
 Review.create({summary: "nail polish", rating: 3, user_id: 2, beer_id: 2})
@@ -31,3 +35,5 @@ Review.create({summary: "nail polish", rating: 3, user_id: 2, beer_id: 2})
 Review.create({summary: "vegas water", rating: 9, user_id: 2, beer_id: 3})
 
 Review.create({summary: "hipster poison", rating: 5, user_id: 2, beer_id: 4})
+
+Review.create({summary: "dark as night", rating: 6, user_id: 2, beer_id: 5})

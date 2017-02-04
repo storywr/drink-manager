@@ -1,0 +1,24 @@
+<h2><%= @beer.name %></h2>
+
+<% if @beer.reviews == [] %>
+  <p>No Ratings Available</p>
+<% else %>
+  <h4> Avg Rating: <%= @beer.average_rating %></h4>
+<% end %>
+
+<h4>Description:</h4>
+<p><%= @beer.description %></p>
+
+<h4>Style: <%= link_to @beer.style.name, style_path(@beer.style) %></h4>
+
+<p>ABV%: <%= @beer.abv %></p>
+
+<% if @beer.reviews == [] %>
+  <p>No Reviews Yet!</p>
+<% else %>
+  <h4>Reviews:</h4>
+  <% @beer.reviews.each do |review| %>
+    <%= review.user.name %> says: "<%= review.summary %>"<br>
+    Rating: <%= review.rating %>/10 <br><br>
+  <% end %>
+<% end %>

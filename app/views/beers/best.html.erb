@@ -1,0 +1,5 @@
+<h2>Highest Rated Beers</h2>
+
+<% @beers.by_rating.each do |beer| %>
+  <%= link_to beer.name, beer_path(beer) %> - <%= beer.average_rating %><br><br>
+<% end %>

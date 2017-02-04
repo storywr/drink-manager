@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :beers
   resources :styles
   resources :users
+  get 'best', to: 'beers#best'
 end
