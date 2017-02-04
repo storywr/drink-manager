@@ -3,7 +3,7 @@
   <%= @style.description %><br>
   <% @style.beers.each do |beer| %>
   <h4><%= beer.name %></h4>
+    Avg Rating: <%= beer.average_rating %><br><br>
     <%= beer.description %><br><br>
     ABV%: <%= beer.abv %><br><br>
-    Your Rating: <%= beer.rating %>/10<br>
   <% end %>

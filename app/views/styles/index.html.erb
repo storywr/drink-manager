@@ -6,16 +6,16 @@
   <%= style.description %><br>
   <% style.beers.each do |beer| %>
   <h4><%= beer.name %> - <%= beer.average_rating %></h4>
-    <%= beer.description %>
+    <%= beer.description %><br><br>
     ABV%: <%= beer.abv %><br>
 
     <% if beer.reviews == [] %>
       <p>No Reviews Yet!</p>
     <% else %>
-      <p>Reviews:</p>
+      <h4>Reviews:</h4>
       <% beer.reviews.each do |review| %>
         <%= review.user.name %> says: "<%= review.summary %>"<br>
-        Rating: <%= review.rating %>/10
+        Rating: <%= review.rating %>/10<br><br>
       <% end %>
     <% end %>
   <% end %>

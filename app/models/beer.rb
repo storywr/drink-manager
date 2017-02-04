@@ -1,6 +1,7 @@
 class Beer < ApplicationRecord
   belongs_to :style
   has_many :reviews
+  has_many :ratings, through: :reviews
 
   def average_rating
     total_rating = 0
@@ -10,7 +11,7 @@ class Beer < ApplicationRecord
         total_rating += review.rating
         total_reviews += 1
       end
-      total_rating.to_f / total_reviews.to_f\
+      (total_rating.to_f / total_reviews.to_f).round(2)
     else
       0.to_f
     end
