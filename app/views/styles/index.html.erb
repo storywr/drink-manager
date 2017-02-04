@@ -1,22 +1,7 @@
 <h1>Beers by Style</h1>
-<h2>Current Style Champion: <%= @styles.highest_rated.name %> - <%= @styles.highest_rated.average_rating %></h2>
+<h2>Current Beer Style Champion: <%= link_to @styles.highest_rated.name, style_path(@styles.highest_rated) %> - <%= @styles.highest_rated.average_rating %></h2>
 
 <% @styles.each do |style| %>
 <h2><%= link_to style.name, style_path(style) %> - <%= style.average_rating %></h2>
   <%= style.description %><br>
-  <% style.beers.each do |beer| %>
-  <h4><%= beer.name %> - <%= beer.average_rating %></h4>
-    <%= beer.description %><br><br>
-    ABV%: <%= beer.abv %><br>
-
-    <% if beer.reviews == [] %>
-      <p>No Reviews Yet!</p>
-    <% else %>
-      <h4>Reviews:</h4>
-      <% beer.reviews.each do |review| %>
-        <%= review.user.name %> says: "<%= review.summary %>"<br>
-        Rating: <%= review.rating %>/10<br><br>
-      <% end %>
-    <% end %>
-  <% end %>
 <% end %>

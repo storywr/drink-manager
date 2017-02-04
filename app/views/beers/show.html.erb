@@ -18,7 +18,7 @@
 <% else %>
   <h4>Reviews:</h4>
   <% @beer.reviews.each do |review| %>
-    <%= review.user.name %> says: "<%= review.summary %>"<br>
+    <%= link_to review.user.name, user_path(review.user) %> says: "<%= review.summary %>"<br>
     Rating: <%= review.rating %>/10 <br><br>
   <% end %>
 <% end %>

@@ -1,0 +1,9 @@
+<h1>User Reviews</h1>
+
+<% @users.each do |user| %>
+  <h3><%= user.name %></h3>
+  <% user.reviews.each do |review| %>
+    <%= link_to review.beer.name, beer_path(review.beer) %> - "<%= review.summary %>"<br>
+    User Rating: <%= review.rating %>/10<br><br>
+  <% end %>
+<% end %>
