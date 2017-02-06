@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :reviews
   root 'users#homepage'
+  resources :reviews
   resources :beers
   resources :styles
   resources :users

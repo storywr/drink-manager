@@ -1,0 +1,12 @@
+
+<h1>Edit Review!</h1>
+
+<%= form_for @review do |f| %>
+  Summary: <%= f.text_area :summary %><br><br>
+  Rating: <%= f.text_field :rating %><br><br>
+  <%= f.hidden_field :user_id, :value => @user.id %>
+  <div class="field">
+    <%= f.collection_radio_buttons(:beer_id, Beer.all, :id, :name) %><br><br>
+  </div>
+  <%= f.submit "Submit" %>
+<% end %>

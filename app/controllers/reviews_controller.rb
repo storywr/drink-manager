@@ -18,6 +18,20 @@ class ReviewsController < ApplicationController
     redirect_to review_path(@review)
   end
 
+  def edit
+    @review = Review.find(params[:id])
+    if current_user.id != @review.user_id
+      redirect_to homepage_path
+    end
+  end
+
+  def update
+    @review = Review.find(params[:id])
+    @review.update(review_params)
+    redirect_to review_path(@review)
+  end
+
+
   private
 
   def review_params
