@@ -2,10 +2,20 @@
 <html>
   <head>
     <title>DrinkManager</title>
+
     <%= csrf_meta_tags %>
-    <%= link_to "Homepage", homepage_path %> | <%= link_to "Add Beer", new_beer_path %> | <%= link_to "Add Style", new_style_path %>
+    <%= link_to "Sign Up", new_user_path %> | <%= link_to "Login", login_path %> | <a href='/auth/github'>Login with Github</a> <br><br>
+    <%= link_to "Homepage", homepage_path %> | <%= link_to "Beers by Rating", best_path %> | <%= link_to "Beers by Style", styles_path %> | <%= link_to "Certified Reviewers", users_path %> |
+ <%= link_to "Add Beer", new_beer_path %> | <%= link_to "Add Style", new_style_path %><br><br>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+      <input type=submit value='logout'>
+    <% end %><br>
+
   </head>
 
   <body>

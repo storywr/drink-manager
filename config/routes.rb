@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :beers
   resources :styles
   resources :users
+  resources :sessions
   get 'best', to: 'beers#best'
   get 'homepage', to: 'users#homepage'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  post '/logout' => 'sessions#destroy'
 end
