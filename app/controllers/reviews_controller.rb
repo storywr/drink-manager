@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :current_user
 
   def index
     @reviews = Review.all
@@ -6,6 +7,7 @@ class ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
+    @user = current_user
   end
 
   def new
@@ -31,6 +33,11 @@ class ReviewsController < ApplicationController
     redirect_to review_path(@review)
   end
 
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to user_path(@user)
+  end
 
   private
 

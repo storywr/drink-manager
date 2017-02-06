@@ -3,4 +3,7 @@
 
 <%= @review.summary %><br><br>
 
-<%= link_to 'Edit Review', edit_review_path(@review) %>
+<% if @user.id == @review.user_id %>
+  <%= link_to 'Edit Review', edit_review_path(@review) %>
+  <%= button_to "delete", @review, :method => :delete %>
+<% end %>
