@@ -1,7 +1,10 @@
 class SessionsController < ApplicationController
+  before_action :current_user
 
   def new
-    @user = User.new
+    if logged_in?
+      redirect_to homepage_path
+    end
   end
 
   def create

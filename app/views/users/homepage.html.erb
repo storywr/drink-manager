@@ -2,6 +2,6 @@
 <h2>Current King of Beers: <%= link_to @beers.highest_rated.name, beer_path(@beers.highest_rated) %> - <%= @beers.highest_rated.average_rating %></h2>
 <h2>Current King of Beer Styles: <%= link_to @styles.highest_rated.name, beer_path(@styles.highest_rated) %> - <%= @styles.highest_rated.average_rating %></h2>
 
-<% if @user %>
+<% if @user.name != nil %>
   <h4>Hello, <%= @user.name %> </h4>
 <% end %>

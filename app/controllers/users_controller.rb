@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :current_user
 
   def index
     @users = User.all
@@ -9,7 +10,9 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    if logged_in?
+      redirect_to homepage_path
+    end
   end
 
   def create
@@ -22,9 +25,6 @@ class UsersController < ApplicationController
   def homepage
     @styles = Style.all
     @beers = Beer.all
-    if current_user
-      @user = User.find(current_user.id)
-    end
     @users = User.all
   end
 
