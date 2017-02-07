@@ -13,15 +13,14 @@ class SessionsController < ApplicationController
         u.name = auth['info']['name']
         u.email = auth['info']['email']
       end
-      session[:user_id] = user.id
     else
       user = User.find_by(name: params[:user][:name])
       user = user.try(:authenticate, params[:user][:password])
       return redirect_to(controller: 'sessions', action: 'new') unless user
-      session[:user_id] = user.id
-      @user = user
-      redirect_to homepage_path
     end
+    session[:user_id] = user.id
+    @user = user
+    redirect_to homepage_path
   end
 
   def destroy
