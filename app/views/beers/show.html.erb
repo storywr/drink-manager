@@ -1,4 +1,5 @@
 <h2><%= @beer.name %></h2>
+<%= link_to "Write Review!", new_review_path %>
 
 <% if @beer.reviews == [] %>
   <p>No Ratings Available</p>
@@ -18,7 +19,8 @@
 <% else %>
   <h4>Reviews:</h4>
   <% @beer.reviews.each do |review| %>
-    <%= link_to review.user.name, user_path(review.user) %> says: "<%= review.summary %>"<br>
-    Rating: <%= review.rating %>/10 <br><br>
+    <%= link_to review.user.name, user_path(review.user) %>
+     - <%= review.rating %>/10,
+    <%= link_to "See Review", beer_review_path(@beer, review) %><br><br>
   <% end %>
 <% end %>
