@@ -4,6 +4,6 @@
   <h2><%= user.name %></h2>
   <% user.reviews.each do |review| %>
     <%= link_to review.beer.name, beer_path(review.beer) %> - "<%= review.summary %>"<br>
-    User Rating: <%= review.rating %>/10<br><br>
+    User Rating: <%= review.rating %>/10 <br><br>
   <% end %>
 <% end %>

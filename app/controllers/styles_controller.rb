@@ -1,4 +1,5 @@
 class StylesController < ApplicationController
+  before_action :current_user
 
   def index
     @styles = Style.all

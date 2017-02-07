@@ -1,4 +1,5 @@
 class BeersController < ApplicationController
+  before_action :current_user
 
   def index
     @beers = Beer.all

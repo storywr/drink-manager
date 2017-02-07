@@ -1,8 +1,11 @@
-<h1>User Reviews</h1>
+<h1> <%= @user.name %>'s Reviews</h1>
 
 <% @user.reviews.each do |review| %>
   <h3><%= link_to review.beer.name, beer_path(review.beer) %> - <%= review.rating %>/10</h3>
-  "<%= review.summary %>"<br>
+  "<%= review.summary %>"<br><br>
+
+  <%= link_to 'Edit Review', [:edit, review] %><br><br>
+
   <%= button_to "delete", {:controller => :reviews,
       :action => 'destroy', :id => review.id }, :method => :delete %>
 <% end %>

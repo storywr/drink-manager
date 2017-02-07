@@ -3,5 +3,5 @@
 <h2>Current King of Beer Styles: <%= link_to @styles.highest_rated.name, beer_path(@styles.highest_rated) %> - <%= @styles.highest_rated.average_rating %></h2>
 
 <% if @user.name != nil %>
-  <h4>Hello, <%= @user.name %> </h4>
+  <h4>Hello, <%= @user.name %>!</h4>
 <% end %>
