@@ -2,6 +2,7 @@ class Beer < ApplicationRecord
   belongs_to :style
   has_many :reviews
   has_many :ratings, through: :reviews
+  accepts_nested_attributes_for :style
 
   def average_rating
     total_rating = 0
@@ -25,6 +26,11 @@ class Beer < ApplicationRecord
 
   def self.by_rating
     (all.sort_by { |beer| beer.average_rating }).reverse
+  end
+
+  def style_attributes=(style)
+    self.style = Style.find_or_create_by(name: style[:name])
+    self.style.update(style)
   end
 
 end

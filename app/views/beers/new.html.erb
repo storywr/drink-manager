@@ -21,11 +21,20 @@
     <%= f.text_area :description %><br><br>
     <%= f.label :abv %><br>
     <%= f.text_field :abv %><br><br>
-  </div>
 
-  <div class="field">
-    <%= f.collection_radio_buttons(:style_id, Style.all, :id, :name) %><br><br>
-  </div>
+    <h3>Pick Existing Style</h3>
+    <div class="field">
+      <%= f.collection_radio_buttons(:style_id, Style.all, :id, :name) %><br><br>
+    </div>
+
+    <h3>Or Create New Style</h3>
+    <%= f.fields_for :style do |addr| %>
+      <%= addr.label :name %><br>
+      <%= addr.text_field :name %><br><br>
+      <%= addr.label :description %><br>
+      <%= addr.text_area :description %><br><br>
+    <% end %>
+  </div><br>
 
   <div class="actions">
     <%= f.submit %>
