@@ -2,7 +2,10 @@ class Beer < ApplicationRecord
   belongs_to :style
   has_many :reviews
   has_many :ratings, through: :reviews
-  accepts_nested_attributes_for :style
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :abv, presence: true
+  validates :style, presence: true
 
   def average_rating
     total_rating = 0

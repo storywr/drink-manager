@@ -21,7 +21,11 @@ class BeersController < ApplicationController
 
   def create
     @beer = Beer.create(beer_params)
-    redirect_to beer_path(@beer)
+    if @beer.save
+      redirect_to beer_path(@beer)
+    else
+      render "new"
+    end
   end
 
   private

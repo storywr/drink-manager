@@ -26,4 +26,8 @@ class Style < ApplicationRecord
     (self.beers.sort_by { |beer| beer.average_rating }).reverse
   end
 
+  def self.styles_by_rating
+    (all.sort_by { |style| style.average_rating }).reverse
+  end
+
 end
