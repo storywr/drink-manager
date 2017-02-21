@@ -1,6 +1,8 @@
 class Style < ApplicationRecord
   has_many :beers
   has_many :reviews, through: :beers
+  validates :name, presence: true
+  validates :description, presence: true
 
   def average_rating
     total_rating = 0

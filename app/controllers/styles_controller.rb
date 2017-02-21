@@ -15,7 +15,11 @@ class StylesController < ApplicationController
 
   def create
     @style = Style.create(style_params)
-    redirect_to style_path(@style)
+    if @style.save
+      redirect_to style_path(@style)
+    else
+      render "new"
+    end
   end
 
   private
