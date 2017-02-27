@@ -14,3 +14,15 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+  $("a.see_reviews").on("click", function(e){
+    $.ajax({
+      method: "GET",
+      url: this.href
+    }).done(function(response){
+      $("div.review").html(response)
+    });
+    e.preventDefault();
+  })
+})

@@ -18,9 +18,7 @@
   <p>No Reviews Yet!</p>
 <% else %>
   <h4>Reviews:</h4>
-  <% @beer.reviews.each do |review| %>
-    <%= link_to review.user.name, user_path(review.user) %>
-     - <%= review.rating %>/10,
-    <%= link_to "See Review", beer_review_path(@beer, review) %><br><br>
-  <% end %>
+  <%= link_to "See Reviews", beer_reviews_path(@beer), :class => "see_reviews" %><br><br>
+  <div class="review">
+  </div>
 <% end %>

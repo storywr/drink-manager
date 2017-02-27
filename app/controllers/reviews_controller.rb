@@ -2,7 +2,10 @@ class ReviewsController < ApplicationController
   before_action :current_user
 
   def index
-    @reviews = Review.all
+    @beer = Beer.find(params[:beer_id])
+    @reviews = @beer.reviews
+
+    render "reviews/index", :layout => false
   end
 
   def show
