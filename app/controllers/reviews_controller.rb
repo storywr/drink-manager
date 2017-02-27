@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
     @beer = Beer.find(params[:beer_id])
     @reviews = @beer.reviews
 
-    render "reviews/index", :layout => false
+    render :json => @reviews
   end
 
   def show
@@ -21,9 +21,9 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.create(review_params)
     if @review.save
-      redirect_to review_path(@review)
+      redirect_to @review.beer
     else
-      render "new"
+      render "beers/index"
     end
   end
 

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'users#homepage'
   resources :reviews
   resources :beers do
-    resources :reviews, only: [:index, :show]
+    resources :reviews, only: [:index, :show, :new, :create]
   end
   resources :styles
   resources :users

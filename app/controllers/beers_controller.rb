@@ -7,6 +7,8 @@ class BeersController < ApplicationController
 
   def show
     @beer = Beer.find(params[:id])
+    @reviews = @beer.reviews
+    @review = @beer.reviews.build
   end
 
   def best

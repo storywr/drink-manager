@@ -17,12 +17,13 @@
 
 $(function(){
   $("a.see_reviews").on("click", function(e){
-    $.ajax({
-      method: "GET",
-      url: this.href
-    }).done(function(response){
-      $("div.review").html(response)
-    });
+    $.get(this.href).success(function(json){
+      var $ol = $("div.reviews ol")
+      $ol.html("")
+      json.forEach(function(review){
+        $ol.append("<li>" + review.summary + " - " + review.rating + "/10" + "</li>")
+      })
+    })
     e.preventDefault();
   })
 })

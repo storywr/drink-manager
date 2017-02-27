@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(version: 20170203222457) do
 
   create_table "reviews", force: :cascade do |t|
     t.string   "summary"
-    t.integer  "rating"
+    t.integer  "rating",     default: 0
     t.integer  "user_id"
     t.integer  "beer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "styles", force: :cascade do |t|
