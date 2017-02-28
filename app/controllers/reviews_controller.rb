@@ -21,9 +21,9 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.create(review_params)
     if @review.save
-      redirect_to @review.beer
+      render 'reviews/show', :layout => false
     else
-      render "beers/index"
+      redirect_to homepage_path
     end
   end
 

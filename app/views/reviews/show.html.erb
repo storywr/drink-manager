@@ -1,9 +1,3 @@
-<h2><%= @review.beer.name %></h2>
-<h4><%= @review.user.name %> - <%= @review.rating %>/10</h4>
-
-<%= @review.summary %><br><br>
-
-<% if @user.id == @review.user_id %>
-  <%= link_to 'Edit Review', edit_review_path(@review) %>
-  <%= button_to "delete", @review, :method => :delete %>
-<% end %>
+<li>
+  <%= @review.summary %> - <%= @review.rating %>/10
+</li>

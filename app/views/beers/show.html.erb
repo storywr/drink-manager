@@ -22,25 +22,12 @@
     <ol>
     </ol>
   </div>
+<% end %>
 
-  <%= form_for(@review, :url => beer_reviews_path(@beer)) do |f| %>
-    <% if @review.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
-
-        <ul>
-        <% @review.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    Summary: <%= f.text_area :summary %><br><br>
-    Rating: <%= f.text_field :rating %><br><br>
-    <%= f.hidden_field :user_id, :value => @user.id %>
-    <%= f.hidden_field :beer_id, :value => @beer.id %>
-    <%= f.submit "Submit" %>
-  <% end %>
-
+<%= form_for([@beer, @review]) do |f| %>
+  Summary: <%= f.text_area :summary %><br><br>
+  Rating: <%= f.text_field :rating %><br><br>
+  <%= f.hidden_field :user_id, :value => @user.id %>
+  <%= f.hidden_field :beer_id, :value => @beer.id %>
+  <input type="submit" autocomplete="off">
 <% end %>
