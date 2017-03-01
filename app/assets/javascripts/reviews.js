@@ -32,7 +32,7 @@ $(function(){
         $("#review_summary").val("");
         $("#review_rating").val("");
         var $ol = $("div.reviews ol")
-        $ol.append(response);
+        $ol.append(response + "<br>");
       },
     })
 

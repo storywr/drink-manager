@@ -1,7 +1,7 @@
 <h1>Beers by Style</h1>
-<h2>Current Beer Style Champion: <%= @styles.highest_rated.name %> - <%= @styles.highest_rated.average_rating %></h2>
+<h2>Current Beer Style Champion: <%= link_to @styles.highest_rated.name, style_path(@styles.highest_rated) %> - <%= @styles.highest_rated.average_rating %></h2>
 
 <% @styles.styles_by_rating.each do |style| %>
-<h2><%= style.name %> - <%= style.average_rating %></h2>
+<h2><%= link_to style.name, style_path(style) %> - <%= style.average_rating %></h2>
   <%= style.description %><br>
 <% end %>
