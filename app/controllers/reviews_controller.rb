@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
     @beer = Beer.find(params[:beer_id])
     @reviews = @beer.reviews
     respond_to do |format|
-      format.json { render json: @reviews.to_json }
+      format.json { render json: @reviews }
       format.html { render :index}
     end
   end
