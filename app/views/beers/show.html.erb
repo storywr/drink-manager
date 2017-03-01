@@ -12,8 +12,8 @@
 
 <h4>Style: <%= link_to @beer.style.name, style_path(@beer.style), :class => "see_description" %></h4>
 <div class="description">
-  <ul>
-  </ul>
+  <p>
+  </p>
 </div>
 
 <% if @beer.reviews == [] %>
@@ -21,8 +21,8 @@
 <% else %>
   <h4><%= link_to "See Reviews", beer_reviews_path(@beer), :class => "see_reviews" %></h4>
   <div class="reviews">
-    <ol>
-    </ol>
+    <ul>
+    </ul>
   </div>
 <% end %>
 

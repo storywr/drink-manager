@@ -1,9 +1,9 @@
 $(function(){
   $("a.see_description").on("click", function(e){
     $.get(this.href).success(function(json){
-      var $ul = $("div.description ul")
-      $ul.html("")
-      $ul.append("<li>" + json.description + "/10" + "</li>")
+      var $p = $("div.description p")
+      $p.html("")
+      $p.append("<p>" + json.description + "/10" + "</p>")
     })
     e.preventDefault();
   })
