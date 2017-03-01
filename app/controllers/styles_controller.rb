@@ -8,7 +8,7 @@ class StylesController < ApplicationController
   def show
     @style = Style.find(params[:id])
     respond_to do |format|
-      format.json { render json: @style.to_json }
+      format.json { render json: @style }
       format.html { render :show}
     end
   end
