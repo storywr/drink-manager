@@ -1,5 +1,5 @@
 <h2><%= @beer.name %></h2>
-<p>ABV%: <%= @beer.abv %></p>
+<h4>ABV%: <%= @beer.abv %></h4>
 
 <% if @beer.reviews == [] %>
   <p>No Ratings Available</p>
@@ -26,6 +26,7 @@
   </div>
 <% end %>
 
+<h4>Add Review</h4>
 <%= form_for([@beer, @review]) do |f| %>
   Summary: <%= f.text_area :summary %><br><br>
   Rating: <%= f.text_field :rating %><br><br>

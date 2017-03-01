@@ -1,6 +1,7 @@
 $(function(){
   $("a.see_reviews").on("click", function(e){
     $.get(this.href).success(function(json){
+      debugger
       var $ul = $("div.reviews ul")
       $ul.html("")
       json.forEach(function(review){

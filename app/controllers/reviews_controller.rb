@@ -4,8 +4,10 @@ class ReviewsController < ApplicationController
   def index
     @beer = Beer.find(params[:beer_id])
     @reviews = @beer.reviews
-
-    render :json => @reviews
+    respond_to do |format|
+      format.json { render json: @reviews.to_json }
+      format.html { render :index}
+    end
   end
 
   def show
