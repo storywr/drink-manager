@@ -11,6 +11,11 @@
 <p><%= @beer.description %></p>
 
 <h4>Style: <%= link_to @beer.style.name, style_path(@beer.style) %></h4>
+<h4><%= link_to "Description", style_path(@beer.style), :class => "see_description" %></h4>
+<div class="description">
+  <ol>
+  </ol>
+</div>
 
 <p>ABV%: <%= @beer.abv %></p>
 

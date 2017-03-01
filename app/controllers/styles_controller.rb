@@ -7,6 +7,8 @@ class StylesController < ApplicationController
 
   def show
     @style = Style.find(params[:id])
+    
+    render :json => @style
   end
 
   def new
@@ -25,7 +27,7 @@ class StylesController < ApplicationController
   private
 
   def style_params
-    params.require(:style).permit(:name, :description)
+    params.require(:style).permit(:name, :description, :beer_id)
   end
 
 

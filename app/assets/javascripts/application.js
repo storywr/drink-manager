@@ -29,6 +29,17 @@ $(function(){
 })
 
 $(function(){
+  $("a.see_description").on("click", function(e){
+    $.get(this.href).success(function(json){
+      var $ol = $("div.description ol")
+      $ol.html("")
+      $ol.append("<li>" + json.description + "/10" + "</li>")
+    })
+    e.preventDefault();
+  })
+})
+
+$(function(){
   $("#new_review").on("submit", function(e){
     url = this.action
     data = {

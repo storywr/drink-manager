@@ -1,5 +1,7 @@
-<h1><%= @style.name %> - <%= @style.average_rating %></h1>
-<%= @style.description %><br>
-<% @style.by_rating.each do |beer| %>
-  <h4><%= link_to beer.name, beer_path(beer) %> - <%= beer.average_rating %><br></h4>
-<% end %>
+<li>
+  <h1><%= @style.name %> - <%= @style.average_rating %></h1>
+  <%= @style.description %><br>
+  <% @style.by_rating.each do |beer| %>
+    <h4><%= link_to beer.name, beer_path(beer) %> - <%= beer.average_rating %><br></h4>
+  <% end %>
+</li>
