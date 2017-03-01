@@ -1,5 +1,5 @@
 <h2><%= @beer.name %></h2>
-<%= link_to "Write Review!", new_review_path %>
+<p>ABV%: <%= @beer.abv %></p>
 
 <% if @beer.reviews == [] %>
   <p>No Ratings Available</p>
@@ -10,19 +10,16 @@
 <h4>Description:</h4>
 <p><%= @beer.description %></p>
 
-<h4>Style: <%= link_to @beer.style.name, style_path(@beer.style) %></h4>
-<h4><%= link_to "Description", style_path(@beer.style), :class => "see_description" %></h4>
+<h4>Style: <%= link_to @beer.style.name, style_path(@beer.style), :class => "see_description" %></h4>
 <div class="description">
-  <ol>
-  </ol>
+  <ul>
+  </ul>
 </div>
-
-<p>ABV%: <%= @beer.abv %></p>
 
 <% if @beer.reviews == [] %>
   <p>No Reviews Yet!</p>
 <% else %>
-  <h4>Reviews: <%= link_to "See All", beer_reviews_path(@beer), :class => "see_reviews" %></h4>
+  <h4><%= link_to "See Reviews", beer_reviews_path(@beer), :class => "see_reviews" %></h4>
   <div class="reviews">
     <ol>
     </ol>

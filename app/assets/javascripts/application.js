@@ -21,7 +21,7 @@ $(function(){
       var $ol = $("div.reviews ol")
       $ol.html("")
       json.forEach(function(review){
-        $ol.append("<li>" + review.summary + " - " + review.rating + "/10" + "</li>")
+        $ol.append("<li>" + review.summary + " - " + review.rating + "/10" + "</li><br>")
       })
     })
     e.preventDefault();
@@ -31,9 +31,9 @@ $(function(){
 $(function(){
   $("a.see_description").on("click", function(e){
     $.get(this.href).success(function(json){
-      var $ol = $("div.description ol")
-      $ol.html("")
-      $ol.append("<li>" + json.description + "/10" + "</li>")
+      var $ul = $("div.description ul")
+      $ul.html("")
+      $ul.append("<li>" + json.description + "/10" + "</li>")
     })
     e.preventDefault();
   })
