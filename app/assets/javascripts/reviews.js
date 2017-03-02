@@ -1,26 +1,27 @@
-class Review {
-  constructor(username, summary, rating) {
-    this.username = username;
-    this.summary = summary;
-    this.rating = rating;
-  }
-
-  concatReview() {
-    return "<li>" + this.username + " - " + this.summary + " - " + this.rating + "/10" + "</li><br>"
-  }
-}
-
 $(function(){
-  $("a.see_reviews").on("click", function(e){
-    $.get(this.href).success(function(json){
-      var $ul = $("div.reviews ul")
-      $ul.html("")
-      json.forEach(function(review){
-        var newReview = new Review(review.user.name, review.summary, review.rating)
-        $ul.append(newReview.concatReview())
+  class Review {
+    constructor(username, summary, rating) {
+      this.username = username;
+      this.summary = summary;
+      this.rating = rating;
+    }
+
+    concatReview() {
+      return "<li>" + this.username + " - " + this.summary + " - " + this.rating + "/10" + "</li><br>"
+    }
+  }
+  $(function(){
+    $("a.see_reviews").on("click", function(e){
+      $.get(this.href).success(function(json){
+        var $ul = $("div.reviews ul")
+        $ul.html("")
+        json.forEach(function(review){
+          var newReview = new Review(review.user.name, review.summary, review.rating)
+          $ul.append(newReview.concatReview())
+        })
       })
+      e.preventDefault();
     })
-    e.preventDefault();
   })
 })
 
