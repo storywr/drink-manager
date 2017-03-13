@@ -1,31 +1,9 @@
 $(function(){
-  class Review {
-    constructor(username, summary, rating) {
-      this.username = username;
-      this.summary = summary;
-      this.rating = rating;
-    }
-
-    concatReview() {
-      return "<li>" + this.username + " - " + this.summary + " - " + this.rating + "/10" + "</li><br>"
-    }
-  }
-  $(function(){
-    $("a.see_reviews").on("click", function(e){
-      $.get(this.href).success(function(json){
-        var $ul = $("div.reviews ul")
-        $ul.html("")
-        json.forEach(function(review){
-          var newReview = new Review(review.user.name, review.summary, review.rating)
-          $ul.append(newReview.concatReview())
-        })
-      })
-      e.preventDefault();
-    })
+  $("a.see_reviews").on("click", function(e){
+    e.preventDefault()
+    return getReviews(this.href)
   })
-})
 
-$(function(){
   $("#new_review").on("submit", function(e){
     url = this.action
     data = {
@@ -52,4 +30,35 @@ $(function(){
 
     e.preventDefault();
   })
-});
+
+  class Review {
+    constructor(attributes) {
+      for (let key of Object.keys(attributes)) {
+        this[key] = attributes[key]
+      }
+    }
+
+    concatReview() {
+      return "<li>" + this.user.name + " - " + this.summary + " - " + this.rating + "/10" + "</li><br>"
+    }
+  }
+
+
+  function getReviews(url) {
+    return fetch(url)
+      .then(response => response.json())
+      .then(json => appendReviews(json))
+      .catch(err => console.log(err))
+  }
+
+  function appendReviews(reviews) {
+    var $ul = $("div.reviews ul")
+    $ul.html("")
+    for (let i = 0; i < reviews.length; i++) {
+      const attributes = reviews[i]
+      const review = new Review(attributes)
+      $ul.append(review.concatReview())
+    }
+  }
+
+})
