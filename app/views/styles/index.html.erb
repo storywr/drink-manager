@@ -3,5 +3,5 @@
 
 <% @styles.styles_by_rating.each do |style| %>
 <h2><%= link_to style.name, style_path(style) %> - <%= style.average_rating %></h2>
-  <%= style.description %><br>
+  <p id="style"><%= style.description %></p><br>
 <% end %>
