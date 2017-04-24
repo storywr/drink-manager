@@ -15,7 +15,7 @@
  */
 
  body {
-   background-color: rgb(25, 25, 29);
+   background-color: rgb(30, 30, 34);
    color: ghostwhite;
  }
 
@@ -28,5 +28,18 @@ h1 {
 }
 
 #style {
+  padding: 15px;
+}
+
+#description {
   width: 50%;
+}
+
+#stylebox {
+  width: 40%;
+  border:4px solid rgb(21, 21, 24);
+}
+
+#stylename {
+  padding-left: 15px;
 }
