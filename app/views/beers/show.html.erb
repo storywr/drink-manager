@@ -1,36 +1,38 @@
-<h2><%= @beer.name %></h2>
-<h4>ABV%: <%= @beer.abv %></h4>
+<div id="beercard">
+  <h2><%= @beer.name %></h2>
+  <h4>ABV%: <%= @beer.abv %></h4>
 
-<% if @beer.reviews == [] %>
-  <p>No Ratings Available</p>
-<% else %>
-  <h4> Avg Rating: <%= @beer.average_rating %></h4>
-<% end %>
+  <% if @beer.reviews == [] %>
+    <p>No Ratings Available</p>
+  <% else %>
+    <h4> Avg Rating: <%= @beer.average_rating %></h4>
+  <% end %>
 
-<h4>Description:</h4>
-<p><%= @beer.description %></p>
+  <h4>Description:</h4>
+  <p><%= @beer.description %></p>
 
-<h4>Style: <%= link_to @beer.style.name, style_path(@beer.style), :class => "see_description" %></h4>
-<div class="description">
-  <p>
-  </p>
-</div>
-
-<% if @beer.reviews == [] %>
-  <p>No Reviews Yet!</p>
-<% else %>
-  <h4><%= link_to "See Reviews", beer_reviews_path(@beer), :class => "see_reviews" %></h4>
-  <div class="reviews">
-    <ul>
-    </ul>
+  <h4>Style: <%= link_to @beer.style.name, style_path(@beer.style), :class => "see_description" %></h4>
+  <div class="description">
+    <p>
+    </p>
   </div>
-<% end %>
 
-<h4>Add Review</h4>
-<%= form_for([@beer, @review]) do |f| %>
-  Summary: <%= f.text_area :summary %><br><br>
-  Rating: <%= f.text_field :rating %><br><br>
-  <%= f.hidden_field :user_id, :value => @user.id %>
-  <%= f.hidden_field :beer_id, :value => @beer.id %>
-  <input type="submit" autocomplete="off">
-<% end %>
+  <% if @beer.reviews == [] %>
+    <p>No Reviews Yet!</p>
+  <% else %>
+    <h4><%= link_to "See Reviews", beer_reviews_path(@beer), :class => "see_reviews" %></h4>
+    <div class="reviews">
+      <ul>
+      </ul>
+    </div>
+  <% end %>
+
+  <h4>Add Review</h4>
+  <%= form_for([@beer, @review]) do |f| %>
+    Summary: <%= f.text_area :summary %><br><br>
+    Rating: <%= f.text_field :rating %><br><br>
+    <%= f.hidden_field :user_id, :value => @user.id %>
+    <%= f.hidden_field :beer_id, :value => @beer.id %>
+    <input type="submit" autocomplete="off">
+  <% end %>
+</div>
