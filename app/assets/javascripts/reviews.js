@@ -31,7 +31,7 @@ $(function(){
     e.preventDefault();
   })
 
-  var Review = class {
+  var Review = class Review {
     constructor(attributes) {
       for (var key of Object.keys(attributes)) {
         this[key] = attributes[key]
