@@ -33,7 +33,7 @@ $(function(){
 
   class Review {
     constructor(attributes) {
-      for (let key of Object.keys(attributes)) {
+      for (var key of Object.keys(attributes)) {
         this[key] = attributes[key]
       }
     }
@@ -54,7 +54,7 @@ $(function(){
   function appendReviews(reviews) {
     var $ul = $("div.reviews ul")
     $ul.html("")
-    for (let i = 0; i < reviews.length; i++) {
+    for (var i = 0; i < reviews.length; i++) {
       const attributes = reviews[i]
       const review = new Review(attributes)
       $ul.append(review.concatReview())
