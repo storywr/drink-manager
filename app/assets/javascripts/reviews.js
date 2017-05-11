@@ -1,3 +1,15 @@
+class Review {
+  constructor(attributes) {
+    for (var key of Object.keys(attributes)) {
+      this[key] = attributes[key]
+    }
+  }
+
+  concatReview() {
+    return "<li>" + this.user.name + " - " + this.summary + " - " + this.rating + "/10" + "</li><br>"
+  }
+}
+
 $(function(){
   $("a.see_reviews").on("click", function(e){
     e.preventDefault()
@@ -30,34 +42,22 @@ $(function(){
 
     e.preventDefault();
   })
-})
 
-class Review {
-  constructor(attributes) {
-    for (var key of Object.keys(attributes)) {
-      this[key] = attributes[key]
+  function getReviews(url) {
+    return fetch(url)
+      .then(response => response.json())
+      .then(json => appendReviews(json))
+      .catch(err => console.log(err))
+  }
+
+  function appendReviews(reviews) {
+    var $ul = $("div.reviews ul")
+    $ul.html("")
+    for (var i = 0; i < reviews.length; i++) {
+      const attributes = reviews[i]
+      const review = new Review(attributes)
+      $ul.append(review.concatReview())
     }
   }
 
-  concatReview() {
-    return "<li>" + this.user.name + " - " + this.summary + " - " + this.rating + "/10" + "</li><br>"
-  }
-}
-
-
-function getReviews(url) {
-  return fetch(url)
-    .then(response => response.json())
-    .then(json => appendReviews(json))
-    .catch(err => console.log(err))
-}
-
-function appendReviews(reviews) {
-  var $ul = $("div.reviews ul")
-  $ul.html("")
-  for (var i = 0; i < reviews.length; i++) {
-    const attributes = reviews[i]
-    const review = new Review(attributes)
-    $ul.append(review.concatReview())
-  }
-}
+})
