@@ -20,7 +20,7 @@ end
 group :production do
   gem 'pg'
 end
-
+ruby '2.3.4'
 gem 'therubyracer'
 gem 'execjs'
 # Use Puma as the app server
