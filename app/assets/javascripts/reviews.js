@@ -1,15 +1,3 @@
-class Review {
-  constructor(attributes) {
-    for (var key of Object.keys(attributes)) {
-      this[key] = attributes[key]
-    }
-  }
-
-  concatReview() {
-    return "<li>" + this.user.name + " - " + this.summary + " - " + this.rating + "/10" + "</li><br>"
-  }
-}
-
 $(function(){
   $("a.see_reviews").on("click", function(e){
     e.preventDefault()
@@ -42,6 +30,19 @@ $(function(){
 
     e.preventDefault();
   })
+
+  var Review = class {
+    constructor(attributes) {
+      for (var key of Object.keys(attributes)) {
+        this[key] = attributes[key]
+      }
+    }
+
+    concatReview() {
+      return "<li>" + this.user.name + " - " + this.summary + " - " + this.rating + "/10" + "</li><br>"
+    }
+  }
+
 
   function getReviews(url) {
     return fetch(url)
