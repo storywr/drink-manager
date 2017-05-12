@@ -1,13 +1,15 @@
+<div class="page-header">
+  <h1><%= @beer.name %>: <small>
+    <% if @beer.reviews == [] %>
+      <p>No Ratings Available</p>
+    <% else %>
+      Avg Rating: <%= @beer.average_rating %>
+    <% end %>
+  </small></h1>
+</div>
+
 <div id="beercard">
-  <h2><%= @beer.name %></h2>
   <h4>ABV%: <%= @beer.abv %></h4>
-
-  <% if @beer.reviews == [] %>
-    <p>No Ratings Available</p>
-  <% else %>
-    <h4> Avg Rating: <%= @beer.average_rating %></h4>
-  <% end %>
-
   <h4>Description:</h4>
   <p><%= @beer.description %></p>
 

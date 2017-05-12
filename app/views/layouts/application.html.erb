@@ -1,23 +1,52 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DrinkManager</title>
+    <title>The Beer Fridge</title>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/homepage">The Beer Fridge</a>
+        </div>
 
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/login">Login</a></li>
+            <li><%= link_to 'Logout', logout_path, :method => :delete %></li>
+            <% if @user %>
+              <% if @user.id != nil %>
+                <li><%= link_to "My Reviews", user_path(@user) %></li>
+              <% end %>
+            <% end %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Beers <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Beers by Rating", best_path %></li>
+                <li><%= link_to "Beers by Style", styles_path %></li>
+                <li><%= link_to "Certified Reviewers", users_path %></li>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to "Add Beer", new_beer_path %></li>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to "Add Style", new_style_path %></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
     <%= csrf_meta_tags %>
-    <%= link_to "Sign Up", new_user_path %> | <%= link_to "Login", login_path %> | <%= link_to("Login with facebook", "/auth/facebook") %> <br><br>
-    <%= link_to "Homepage", homepage_path %> | <%= link_to "Beers by Rating", best_path %> | <%= link_to "Beers by Style", styles_path %> | <%= link_to "Certified Reviewers", users_path %> |
-    <%= link_to "Add Beer", new_beer_path %> | <%= link_to "Add Style", new_style_path %>
-    <% if @user %>
-      <% if @user.id != nil %>
-        | <%= link_to "My Reviews", user_path(@user) %>
-      <% end %>
-    <% end %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <br><br> <%= button_to 'Logout', logout_path, :method => :delete %><br>
   </head>
 
   <body>

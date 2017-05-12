@@ -1,5 +1,9 @@
-<h2>Highest Rated Beers</h2>
+<div class="page-header">
+  <h1>Highest Rated Beers</h1>
+</div>
 
-<% @beers.by_rating.each do |beer| %>
-  <%= link_to beer.name, beer_path(beer) %> - <%= beer.average_rating %><br><br>
-<% end %>
+<div class="beers">
+  <% @beers.by_rating.each do |beer| %>
+    <h2><%= link_to beer.name, beer_path(beer) %> - <%= beer.average_rating %></h2>
+  <% end %>
+</div>

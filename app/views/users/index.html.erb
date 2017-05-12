@@ -1,4 +1,6 @@
-<h1>User Reviews</h1>
+<div class="page-header">
+  <h1>User Reviews</h1>
+</div>
 
 <% @users.each do |user| %>
   <div id="usercard">
@@ -7,11 +9,11 @@
       <%= link_to review.beer.name, beer_path(review.beer) %> - "<%= review.summary %>"<br>
       User Rating: <%= review.rating %>/10 <br><br>
       <% if @current_user.id == review.user_id %>
-        <%= link_to 'Edit Review', [:edit, review] %><br><br>
+        <%= link_to 'Edit Review', [:edit, review] %><br>
 
         <%= button_to "delete", {:controller => :reviews,
             :action => 'destroy', :id => review.id }, :method => :delete %>
-      <% end %><br><br>
+      <% end %><br>
     <% end %>
   </div><br>
 <% end %>

@@ -1,9 +1,11 @@
-<h1>Beers by Style</h1>
-<h2>Current Beer Style Champion: <%= link_to @styles.highest_rated.name, style_path(@styles.highest_rated) %> - <%= @styles.highest_rated.average_rating %></h2>
-
-<% @styles.styles_by_rating.each do |style| %>
-  <div id="stylebox">
-    <h2 id="stylename"><%= link_to style.name, style_path(style) %> - <%= style.average_rating %></h2>
-      <p id="style"><%= style.description %></p>
-  </div><br>
-<% end %>
+<div class="page-header">
+  <h1>Current Beer Style Champion: <small><%= link_to @styles.highest_rated.name, style_path(@styles.highest_rated) %> - <%= @styles.highest_rated.average_rating %></small></h1>
+</div>
+<div class="styles">
+  <% @styles.styles_by_rating.each do |style| %>
+    <div id="stylebox">
+      <h2 id="stylename"><%= link_to style.name, style_path(style) %> - <%= style.average_rating %></h2>
+        <p id="style"><%= style.description %></p>
+    </div><br>
+  <% end %>
+</div>

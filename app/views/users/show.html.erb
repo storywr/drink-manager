@@ -1,13 +1,17 @@
-<h1> <%= @user.name %>'s Reviews</h1>
+<div class="page-header">
+  <h1> <%= @user.name %>'s Reviews</h1>
+</div>
 
-<% @user.reviews.each do |review| %>
-  <h3><%= link_to review.beer.name, beer_path(review.beer) %> - <%= review.rating %>/10</h3>
-  "<%= review.summary %>"<br><br>
+<div id="mycard">
+  <% @user.reviews.each do |review| %>
+    <h3><%= link_to review.beer.name, beer_path(review.beer) %> - <%= review.rating %>/10</h3>
+    "<%= review.summary %>"<br><br>
 
-  <% if @current_user.id == review.user_id %>
-    <%= link_to 'Edit Review', [:edit, review] %><br><br>
+    <% if @current_user.id == review.user_id %>
+      <%= link_to 'Edit Review', [:edit, review] %><br><br>
 
-    <%= button_to "delete", {:controller => :reviews,
-        :action => 'destroy', :id => review.id }, :method => :delete %>
+      <%= button_to "delete", {:controller => :reviews,
+          :action => 'destroy', :id => review.id }, :method => :delete %>
+    <% end %>
   <% end %>
-<% end %>
+</div>
