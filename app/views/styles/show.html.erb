@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1><%= @style.name %><small> - <%= @style.average_rating %></small></h1>
 </div>
-<div id="stylecard">
+<div id="beerstyle">
     <p id="description"><%= @style.description %></p><br>
     <% @style.by_rating.each do |beer| %>
       <h4><%= link_to beer.name, beer_path(beer) %> - <%= beer.average_rating %><br></h4>

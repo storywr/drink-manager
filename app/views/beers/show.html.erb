@@ -26,13 +26,14 @@
     <div class="reviews">
       <ul>
       </ul>
-    </div>
+    </div><br><br>
   <% end %>
 
   <h4>Add Review</h4>
   <%= form_for([@beer, @review]) do |f| %>
-    Summary: <%= f.text_area :summary %><br><br>
-    Rating: <%= f.text_field :rating %><br><br>
+    <%= f.text_area :summary, placeholder: "summary"%><br><br>
+    <h5>Rating</h5>
+    <%= f.text_field :rating%><br><br>
     <%= f.hidden_field :user_id, :value => @user.id %>
     <%= f.hidden_field :beer_id, :value => @beer.id %>
     <input type="submit" autocomplete="off">
