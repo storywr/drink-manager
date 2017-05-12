@@ -89,8 +89,9 @@ a {
   border:4px solid rgb(21, 21, 24);
 }
 
-#styledescription {
+#stylecard {
   margin-left: 2%;
   padding: 15px;
   width: 40%;
+  border:4px solid rgb(21, 21, 24);
 }
